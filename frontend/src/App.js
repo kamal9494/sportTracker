@@ -105,14 +105,6 @@ function App() {
             </AdminView>
           }
         />
-        <Route
-          path="/changePassword"
-          element={
-            <AdminView role={currUser}>
-              <ChangePassword />
-            </AdminView>
-          }
-        />
 
         {/* Student Views */}
         <Route
@@ -145,6 +137,8 @@ function App() {
             </StudentView>
           }
         />
+
+        {/* Common */}
         <Route
           path="/changePassword"
           element={
