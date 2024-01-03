@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 import makeApiCall from "../api";
+import { FaGithub } from "react-icons/fa";
 
 const Issue = ({ user }) => {
   const [sportData, setSportData] = useState(null);
@@ -163,6 +164,9 @@ const Issue = ({ user }) => {
           >
             Login
           </NavLink>
+          <a href="https://github.com/kamal9494/sportTracker" target="_blank" rel="noreferrer" className="flex gap-2 items-center justify-center opacity-70">
+          <FaGithub /> kamal9494
+          </a>
         </div>
       )}
     </div>

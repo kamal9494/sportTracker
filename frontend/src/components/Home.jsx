@@ -77,7 +77,7 @@ const Home = ({ user, setUser, setCurrUser}) => {
           >
             Login
           </NavLink>
-          <a href="https://github.com/kamal9494/sportenvbackend.git" target="_blank" rel="noreferrer" className="flex gap-2 items-center justify-center opacity-70">
+          <a href="https://github.com/kamal9494/sportTracker" target="_blank" rel="noreferrer" className="flex gap-2 items-center justify-center opacity-70">
           <FaGithub /> kamal9494
           </a>
         </div>
