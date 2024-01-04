@@ -5,7 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
 import Cookies from "universal-cookie";
 import { toast } from "react-toastify";
-import { FaCaretDown, FaAngleUp } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const Navbar = ({ user, setUser, setCurrUser }) => {
   const navigate = useNavigate();
@@ -55,7 +55,7 @@ const Navbar = ({ user, setUser, setCurrUser }) => {
   return (
     <div
       ref={menuRef}
-      className="w-full relative flex justify-between items-center h-20 max-w-[1640px] mx-auto px-4 bg-black text-white"
+      className="w-full flex justify-between items-center h-20 max-w-[1640px] mx-auto px-4 bg-black text-white"
     >
       <div onClick={handleNav} className="w-[25px] block md:hidden">
         <AiOutlineMenu size={25} />
@@ -120,43 +120,47 @@ const Navbar = ({ user, setUser, setCurrUser }) => {
         </ul>
       )}
 
-      <div
-        className="items-center h-full gap-2 flex cursor-pointer"
-        style={{ userSelect: "none" }}
-        onClick={handleContextMenu}
-      >
-        {user && <div>{menu ? <FaAngleUp /> : <FaCaretDown />}</div>}
-        <AiOutlineUser
-          size={35}
-          className={user && "border-blue-800 border rounded-full"}
-        />
-        {user && user.role === "student" ? (
-          <label className="text-white font-semibold hidden lg:block">
-            {user.sid.toUpperCase()}
-          </label>
-        ) : user && user.role === "admin" ? (
-          <>
-            <label className="text-white font-semibold hidden lg:block">
-              {user.role}
-            </label>
-          </>
-        ) : (
-          <NavLink
-            to="/login"
-            className="bg-[#2a2b2a] p-2 rounded-md hover:bg-[#363736]"
-          >
-            Login
-          </NavLink>
+      <div className="flex items-center justify-center gap-1">
+        {user && (
+          <div>
+            {menu ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
+          </div>
         )}
+        <div
+          className={`items-center p-2 rounded-full gap-2 flex cursor-pointer select-none ${user ? `hover:bg-slate-900` : ``}`}
+          onClick={handleContextMenu}
+        >
+          <AiOutlineUser
+            size={35}
+            className={user && "border-blue-800 border rounded-full"}
+          />
+          {user && user.role === "student" ? (
+            <label className="text-white font-semibold hidden lg:block">
+              {user.sid.toUpperCase()}
+            </label>
+          ) : user && user.role === "admin" ? (
+            <>
+              <label className="text-white font-semibold hidden lg:block">
+                {user.role}
+              </label>
+            </>
+          ) : (
+            <NavLink
+              to="/login"
+              className="bg-[#2a2b2a] p-2 rounded-md hover:bg-[#363736]"
+            >
+              Login
+            </NavLink>
+          )}
+        </div>
       </div>
 
       <div8
         className={
           menu && user
-            ? "absolute z-20 right-0 top-20 bg-gray-300 shadow-lg text-black w-[180px] md:w-[200px] rounded-lg"
-            : "absolute top-[-200%]"
+            ? "absolute z-20 right-0 top-20 bg-white shadow-lg text-black w-[180px] md:w-[200px] rounded-lg select-none"
+            : "absolute top-[-100%]"
         }
-        style={{ userSelect: "none" }}
       >
         <ul className="flex flex-col gap-2">
           <li className="text-center p-3">

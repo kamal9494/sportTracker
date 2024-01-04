@@ -152,8 +152,8 @@ function App() {
       </Routes>
       <ToastContainer
         position="bottom-center"
-        autoClose={1500}
-        hideProgressBar={false}
+        autoClose={1000}
+        hideProgressBar={true}
         closeOnClick
         draggable
         theme="colored"
