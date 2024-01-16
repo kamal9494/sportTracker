@@ -18,6 +18,20 @@ router.get("/", verifyToken, async (req, res) => {
   }
 });
 
+router.get("/count", verifyToken, async (req, res) => {
+  try {
+    if (req.user.role.toLowerCase() !== "admin") {
+      return res
+        .status(401)
+        .json({ message: "Unauthorized access, only for admins" });
+    }
+    const results = await Issue.find({}, { __v: 0, _id: 0 });
+    res.status(200).send({pending: results.length});
+  } catch (error) {
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
 router.patch("/", verifyToken, async (req, res) => {
   try {
     const { id, quantity } = req.body;

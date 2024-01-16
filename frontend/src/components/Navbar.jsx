@@ -155,7 +155,7 @@ const Navbar = ({ user, setUser, setCurrUser }) => {
         </div>
       </div>
 
-      <div8
+      <div
         className={
           menu && user
             ? "absolute z-20 right-0 top-20 bg-white shadow-lg text-black w-[180px] md:w-[200px] rounded-lg select-none"
@@ -195,7 +195,7 @@ const Navbar = ({ user, setUser, setCurrUser }) => {
             </div>
           </li>
         </ul>
-      </div8>
+      </div>
 
       <div
         className={
